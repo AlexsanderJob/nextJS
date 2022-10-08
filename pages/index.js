@@ -80,13 +80,6 @@ export default function Home() {
     )
 }
 
-export async function getStaticPaths() {
-    return {
-        paths: ['/'],
-        fallback: false
-    }
-}
-
 export const getStaticProps = wrapper.getStaticProps(store => async () => {
     const resCoin = await getCoinData();
     store.dispatch(getCoinAction(resCoin));
