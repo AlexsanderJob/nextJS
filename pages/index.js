@@ -80,7 +80,7 @@ export default function Home() {
     )
 }
 
-const getServerSideProps = wrapper.getServerSideProps(store => async () => {
+export const getServerSideProps = wrapper.getServerSideProps(store => async () => {
     const resCoin = await getCoinData();
     store.dispatch(getCoinAction(resCoin));
 });
