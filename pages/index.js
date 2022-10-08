@@ -80,11 +80,11 @@ export default function Home() {
     )
 }
 
-export const getInitialProps = wrapper.getInitialPageProps(store => async () => {
+export const getStaticProps = wrapper.getStaticProps(store => async () => {
     const resCoin = await getCoinData();
     store.dispatch(getCoinAction(resCoin));
     return {
-        props: {}
+        revalidate: 5
     };
 });
 
