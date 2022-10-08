@@ -84,7 +84,7 @@ export const getStaticProps = wrapper.getStaticProps(store => async () => {
     const resCoin = await getCoinData();
     store.dispatch(getCoinAction(resCoin));
     return {
-        revalidate: 60
+        revalidate: 5
     };
 });
 
