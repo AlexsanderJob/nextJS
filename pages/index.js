@@ -87,9 +87,11 @@ export async function getStaticPaths() {
     }
 }
 
-export const getServerSideProps = wrapper.getServerSideProps(store => async () => {
+export const getStaticProps = wrapper.getStaticProps(store => async () => {
     const resCoin = await getCoinData();
     store.dispatch(getCoinAction(resCoin));
-    return {};
+    return {
+        revalidate: 60
+    };
 });
 
